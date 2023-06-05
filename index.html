@@ -1,6 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 
+<script src="https://cdn.trackjs.com/agent/v3/latest/t.js"></script>
+<script>
+  window.TrackJS && TrackJS.install({ 
+    token: "ee9daa726b7c412d9438788133570173"
+    // for more configuration options, see https://docs.trackjs.com
+  });
+</script>
+                        
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,14 +20,17 @@
       margin: 3px;
     }
 
+
     button:hover {
       cursor: pointer;
     }
+
 
     #first-num,
     #second-num {
       width: 60px;
     }
+
 
     output {
       border: 1px solid gray;
@@ -30,9 +41,11 @@
       width: 240px;
     }
 
+
     main {
       width: 800px;
     }
+
 
     #error-btns {
       column-gap: 5px;
@@ -42,12 +55,16 @@
       row-gap: 5px;
     }
 
+
     #error-btns>* {
       padding: 8px 2px;
       width: 122px;
     }
+
   </style>
 </head>
+
+                        
 
 <body>
   <main>
@@ -68,41 +85,27 @@
       </fieldset>
     </form>
 
+
     <section id="error-btns">
-      <button>Console Log</button>
-      <button>Console Error</button>
-      <button>Console Count</button>
-      <button>Console Warn</button>
-      <button>Console Assert</button>
-      <button>Console Clear</button>
-      <button>Console Dir</button>
-      <button>Console dirxml</button>
-      <button>Console Group Start</button>
-      <button>Console Group End</button>
-      <button>Console Table</button>
-      <button>Start Timer</button>
-      <button>End Timer</button>
-      <button>Console Trace</button>
-      <button>Trigger a Global Error</button>
+      <button id="console-log">Console Log Demo</button>
+      <button id="console-error">Console Error Demo</button>
+      <button id="console-count">Console Count Demo</button>
+      <button id="console-warn">Console Warn Demo</button>
+      <button id="console-assert">Console Assert Demo</button>
+      <button id="console-clear">Console Clear Demo</button>
+      <button id="console-dir">Console Dir Demo</button>
+      <button id="console-dirxml">Console Dirxml Demo</button>
+      <button id="console-group-start">Console Group Start Demo</button>
+      <button id="console-group-end">Console Group End Demo</button>
+      <button id="console-table">Console Table Demo</button>
+      <button id="console-timer-start">Start Timer Demo</button>
+      <button id="console-timer-end">End Timer Demo</button>
+      <button id="console-trace">Console Trace Demo</button>
+      <button id="trigger-error">Trigger a Global Error</button>
     </section>
   </main>
 
-  <script>
-    let form = document.querySelector('form');
-    form.addEventListener('submit', e => {
-      e.preventDefault();
-      let output = document.querySelector('output');
-      let firstNum = document.querySelector('#first-num').value;
-      let secondNum = document.querySelector('#second-num').value;
-      let operator = document.querySelector('#operator').value;
-      output.innerHTML = eval(`${firstNum} ${operator} ${secondNum}`);
-    });
-
-    let errorBtns = Array.from(document.querySelectorAll('#error-btns > button'));
-
-    // Start your code here
-    // You may move this JS to another file if you wish
-  </script>
+  <script src="script.js"></script>
 </body>
 
 </html>
